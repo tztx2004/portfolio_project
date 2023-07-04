@@ -1,0 +1,10 @@
+
+제작기간 : ~7월 21일
+구성
+- HOME : 개인 소개 페이지
+- ABOUT ME : 장점, 강점 어필
+- PROJECT : 포트폴리오
+- SKILLS : 스킬 셋
+- INFO : 개인정보
+
+리액트, typescript로 제작할 것
