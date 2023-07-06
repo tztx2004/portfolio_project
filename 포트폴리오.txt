@@ -1,3 +1,5 @@
+설치 : yarn create react-app my-app --template typescript
+
 
 제작기간 : ~7월 21일
 구성
@@ -8,3 +10,4 @@
 - INFO : 개인정보
 
 리액트, typescript로 제작할 것
+
