@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.homeWrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.homeImg{
+    background: url(../../public/images/이력서사진3.jpg) no-repeat center/cover;
+    width: 30%;
+    height: 480px;
+    outline: 1px dashed blue;
+}
