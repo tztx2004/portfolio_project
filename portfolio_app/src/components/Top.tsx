@@ -1,24 +1,58 @@
-import "../style/top.css"
-interface test{
-    // props에 type 어떻게 지정해야될지 고민
+import React, { Dispatch, SetStateAction, useState } from "react";
+
+import "../style/top.css";
+
+export interface PropsTop {
+    logo: string;
+    mail: string;
+    navbar: string[];
 }
 
+type navbar = {
+    navbar: string[]
+    navSt: boolean
+    setNavSt: Dispatch<SetStateAction<boolean>>
+}
 
-export default function Top(props:test){
+function NavBar({ navbar, navSt, setNavSt } :navbar){
+    
     return(
-        <div id="top">
-            <div className="logo">CHAN</div>
-            <div className="mail"></div>
-            <div className="hambtn"></div>
-            <div className="navBar">
+        <div className="navBar">
+            <div className="nav_wrap">
+                <button className="closedBtn" onClick={()=>setNavSt(false)}></button>
                 <ul>
-                    <li>Home</li>
-                    <li>About Me</li>
-                    <li>Project</li>
-                    <li>Skills</li>
-                    <li>Info</li>
+                    {
+                        navbar.map((x, i) => (
+                            <li key={i}>
+                                <a href="#">{x}</a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
         </div>
     )
+}
+
+
+
+export default function Top(props: PropsTop): JSX.Element {
+    const { logo, mail, navbar } = props;
+    
+    // 네비게이션 버튼 활성화 변수
+    const [navSt, setNavSt] = useState<boolean>(false)
+    return (
+        <div id="top">
+            <div className="topBar">
+                <div className="logo">{logo}</div>
+                <div className="mail">Contact : {mail}</div>
+                <div className="hambtn" onClick={()=>setNavSt(true)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt}/>}
+        </div>
+    );
 }

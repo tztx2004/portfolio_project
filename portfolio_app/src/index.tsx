@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Top/>
+    <Top logo="CHAN" mail='tztx2004@gmail.com' navbar = {["Home","About Me","Project","Skills","Info"]} />
     <Home/>
   </React.StrictMode>
 );
