@@ -8,13 +8,13 @@ export interface PropsTop {
     navbar: string[];
 }
 
-type navbar = {
+type Navbar = {
     navbar: string[]
     navSt: boolean
     setNavSt: Dispatch<SetStateAction<boolean>>
 }
 
-function NavBar({ navbar, navSt, setNavSt } :navbar){
+function NavBar({ navbar, navSt, setNavSt } :Navbar){
     
     return(
         <div className="navBar">

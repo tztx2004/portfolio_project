@@ -2,12 +2,27 @@
 
 .homeWrap{
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    position: absolute;
+    top: 10%;
 }
 .homeImg{
     background: url(../../public/images/이력서사진3.jpg) no-repeat center/cover;
+    background-position: 0 100%;
+    width: 30%;
+    height: 480px;
+    border-radius: 20px;
+}
+.homeTxt{
     width: 30%;
     height: 480px;
     outline: 1px dashed blue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
