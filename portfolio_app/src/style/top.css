@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* 
-#083459
-#F5DDB0
-#F6F5F1
-#93C6D3
+#083459 : 파랑
+#F5DDB0 : 노랑
+#F6F5F1 : 흰
+#93C6D3 : 하늘
 */
 #root{
     height: 100vh;
@@ -38,8 +38,9 @@
 .hambtn span{
     display: inline-block;
     width: 25px;
-    height: 1px;
+    height: 2px;
     background: #F6F5F1;
+    border-radius: 10px;
 }
 .navBar{
     position: absolute;
