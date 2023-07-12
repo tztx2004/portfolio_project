@@ -9,6 +9,7 @@
     
     position: absolute;
     top: 10%;
+    background: #083459;
 }
 .homeImg{
     background: url(../../public/images/이력서사진3.jpg) no-repeat center/cover;
@@ -20,9 +21,22 @@
 .homeTxt{
     width: 30%;
     height: 480px;
-    outline: 1px dashed blue;
+    /* outline: 1px dashed red; */
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.homeTxt h2{
+    font-size: 3vw;
+    color: #F5DDB0;
+}
+.homeTxt h1{
+    font-size: 3.5vw;
+    color: #F5DDB0;
+}
+.homeTxt h3{
+    font-size: 1.3vw;
+    color: #F6F5F1;
 }
