@@ -12,6 +12,17 @@
   font-weight: bold;
   font-style: normal;
 }
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: var(--opacityTarget);
+    transform: translateY(0px);
+  }
+}
+
 :root{
   --blueC : #083459;
   --yellowC : #F5DDB0;

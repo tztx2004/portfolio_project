@@ -12,7 +12,7 @@ export default function Home(){
 
     return(
         <div id="Home">
-            <div className="homeWrap">
+            <div className="homeWrap" style={{animation:"fadein 1s"}}>
                 <div className="homeImg"></div>
                 <div className="homeTxt">
                     <h2 className="intro">Front-End Developer;</h2>
