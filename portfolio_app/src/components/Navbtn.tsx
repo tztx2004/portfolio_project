@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { styled } from "styled-components"
 
 type NavbtnType = {
     direction: 'right' | 'left';
+    onClick?: ()=>void
 }
 
 const Btn = styled.div<NavbtnType>`
@@ -19,9 +21,17 @@ const Btn = styled.div<NavbtnType>`
     cursor: pointer;
 `;
 
-const Navbtn = ({direction}:NavbtnType)=>{
+const Navbtn = ({direction, onClick}:NavbtnType)=>{
+    const [page, setPage] = useState(0)
+    type Test = React.MouseEvent
+    const slide = (e:Test)=>{
+        return console.log("slide!!!",e.currentTarget)
+
+    }
+
+
     return( 
-        <Btn direction ={direction}></Btn>
+        <Btn className="Navbtn" direction ={direction} onClick={()=>slide}></Btn>
     )
 }
 

@@ -22,14 +22,15 @@ const Page = styled.div<PageType>`
     -webkit-box-pack: center;
 `
 
-type PageCounterType = {
-    cnt:number
-}
+// type PageCounterType = {
+//     page:number
+// }
+
 const PageCounter/* : React.FC<PageCounterType> */=
-({cnt}:{cnt:number})=>{
+({page}:{page:number})=>{
     return(
         <Page>
-            <h2 className="counter">{cnt}</h2>
+            <h2 className="counter">{page}</h2>
         </Page>
     )
 }
