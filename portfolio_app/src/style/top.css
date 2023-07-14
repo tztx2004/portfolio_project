@@ -57,7 +57,7 @@
     position: absolute;
     background: #93C6D3;
     animation: navAni .8s forwards;
-    z-index: 1;
+    z-index: 2;
 }
 @keyframes navAni {
     0%{

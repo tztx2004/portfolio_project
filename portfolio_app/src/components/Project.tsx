@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components"
 
 // stacks
@@ -47,16 +47,14 @@ const ProjectWrap = styled.div`
         justify-content: space-between;
         font-size: 1.5vw;
     }
-    .numSliderPart span:nth-child(1),
-    .numSliderPart span:nth-child(3),
-    {
-        // cursor: pointer;
-        // user-select: none;
+    .left_arrow,
+    .right_arrow{
+        cursor: pointer;
+        user-select: none;
     }
-    .numSliderPart span:nth-child(1):hover,
-    .numSliderPart span:nth-child(3):hover,
-    {
-        color: var(--whiteC);
+    .left_arrow:hover,
+    .right_arrow:hover{
+        color:var(--whiteC);
     }
 
     .sliderItem{
@@ -64,10 +62,11 @@ const ProjectWrap = styled.div`
         z-index: 0;
         opacity: 0;
     }
-    .pjContent .sliderItem:nth-child(2){
+    .sliderItem.on{
         z-index: 1;
         opacity: 1;
     }
+    
     .stack_container{
         width: 80%;
         margin-top: 10px;
@@ -135,7 +134,7 @@ const ProjectWrap = styled.div`
 
 
 const Project = ()=>{
-    const [pjnum, setPjnum] = useState(0)
+    let [pjnum, setPjnum] = useState<number>(0)
 
     const pjArr = [
         {
@@ -143,38 +142,70 @@ const Project = ()=>{
             'title':"Apple iPhone 14 Pro",
             'date': "2023.03 ~ 2023.04",
             'thumb':'./images/apple.png',
-            'desc': `애플사의 아이폰을 주제로 웹페이지를 제작하였습니다. Javascript와 기본 markup을 사용하여 만들었던 프로젝트입니다. 처음으로 만든 프로젝트로 스크롤 이벤트를 주로 사용하여 다양한 효과를 주었습니다. 또한, 슬라이드 기능, 반응형 디자인 등을 신경써서 만들었습니다.`,
             'url': 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/apple.html',
-            'tags': [[js,'js'],[html,'html'],[css,'css'],[github,'github'],]
+            'tags': [[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
+            'desc': `애플사의 아이폰을 주제로 웹페이지를 제작하였습니다. Javascript와 기본 markup을 사용하여 만들었던 프로젝트입니다. 처음으로 만든 프로젝트로 스크롤 이벤트를 주로 사용하여 다양한 효과를 주었습니다. 또한, 슬라이드 기능, 반응형 디자인 등을 신경써서 만들었습니다.`,
         },
         {
             'id':2,
             'title':"NASA",
             'date': "2023.04 ~ 2023.05",
-            'thumb':'',
+            'thumb':'./images/nasa.png',
+            'url': 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/04.%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/solarsystem/main.html',
+            'tags': [[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
             'desc': ``,
-            'url': '',
-            'tags': [[js,'js'],[html,'html'],[css,'css'],[github,'github'],]
         },
         {
             'id':3,
             'title':"그림판매 사이트",
             'date': "2023.05 ~ 2023.06",
-            'thumb':'',
+            'thumb':'./images/musium.png',
+            'url': 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/02.%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%9B%B9&%EC%95%B1%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html',
+            'tags': [[vue,'vue'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
             'desc': ``,
-            'url': '',
-            'tags': [[vue,'vue'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],]
         },
         {
             'id':4,
             'title':"AI MODEL",
             'date': "2023.06 ~ 2023.07",
-            'thumb':'',
+            'thumb':'./images/ai.png',
+            'url': 'https://spa-ai.vercel.app/Main',
+            'tags': [[react,'react'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
             'desc': ``,
-            'url': '',
-            'tags': [[react,'react'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],]
         },
     ]
+
+
+    useEffect(() => {
+        // 초기값
+        if(pjnum === 0) document.querySelector(`.pjContent .sliderItem:nth-child(2)`)?.classList.add('on')
+
+        const handleRightArrowClick = () => {
+            if(pjnum<pjArr.length-1) setPjnum(++pjnum);
+            let prevSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+1})`)
+            prevSi?.classList.remove("on")
+            let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+2})`)
+            si?.classList.add("on")
+        };
+
+        const handleLeftArrowClick = () => {
+            if(pjnum>0) setPjnum(--pjnum);
+            let afterSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+3})`)
+            afterSi?.classList.remove("on")
+            let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+2})`)
+            si?.classList.add("on")
+        };
+
+        document.querySelector(".right_arrow")?.addEventListener("click", handleRightArrowClick);
+        document.querySelector(".left_arrow")?.addEventListener("click", handleLeftArrowClick);
+
+        return () => {
+            document.querySelector(".right_arrow")?.removeEventListener("click", handleRightArrowClick);
+            document.querySelector(".left_arrow")?.removeEventListener("click", handleLeftArrowClick);
+        };
+    }, []);
+
+
 
     return(
         <ProjectWrap>
@@ -183,7 +214,7 @@ const Project = ()=>{
                 <div className="pjContent">
                     <div className="numSliderPart">
                         <span className="left_arrow"> ← </span>
-                        <span>{pjArr[0].id} / {pjArr.length}</span>
+                        <span>{pjArr[pjnum].id} / {pjArr.length}</span>
                         <span className="right_arrow"> → </span>
                     </div>
                     {
