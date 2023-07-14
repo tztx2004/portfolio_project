@@ -3,11 +3,12 @@ import { styled } from "styled-components";
 const AboutWrapper = styled.div`
     height: 100%;
     animation: fadein .8s;
+    background: var(--whiteC);
 `
 
 const AboutWrap = styled.div`
     width: 80%;
-    height: 90%;
+    height: 100%;
     display: flex;
     justify-content: center;
     gap: 10%;

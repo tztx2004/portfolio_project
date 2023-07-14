@@ -13,7 +13,7 @@ const jquery = '/images/logo/jquery.svg';
 
 const ProjectWrap = styled.div`
     width: 100%;
-    height: 90%;
+    height: 100%;
     background: var(--blueC);
     color: var(--whiteC);
     display: flex;
@@ -22,7 +22,7 @@ const ProjectWrap = styled.div`
 
     .project{
         width: 70%;
-        height: 85%;
+        height: 60%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;

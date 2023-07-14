@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import "../style/top.css";
 
@@ -6,12 +6,14 @@ export interface PropsTop {
     logo: string;
     mail: string;
     navbar: string[];
+    theme?: string;
 }
 
 type Navbar = {
     navbar: string[]
     navSt: boolean
     setNavSt: Dispatch<SetStateAction<boolean>>
+
 }
 
 function NavBar({ navbar, navSt, setNavSt } :Navbar){
@@ -37,10 +39,15 @@ function NavBar({ navbar, navSt, setNavSt } :Navbar){
 
 
 export default function Top(props: PropsTop): JSX.Element {
-    const { logo, mail, navbar } = props;
+    const { logo, mail, navbar, theme } = props;
     
     // 네비게이션 버튼 활성화 변수
     const [navSt, setNavSt] = useState<boolean>(false)
+    useEffect(()=>{
+        let test = document.querySelector("#top")
+        theme === "light"? test?.classList.add("light"): test?.classList.remove("light")
+    })
+
     return (
         <div id="top">
             <div className="topBar">
@@ -52,7 +59,7 @@ export default function Top(props: PropsTop): JSX.Element {
                     <span></span>
                 </div>
             </div>
-            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt}/>}
+            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt} />}
         </div>
     );
 }

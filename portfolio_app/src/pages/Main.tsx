@@ -13,10 +13,7 @@ const Main = ()=>{
     
     const slide = (e: MouseEvent) => {
         let target = e.currentTarget;
-        console.log("slide", target)
-        
         target.getAttribute("direction") === "left"? setPage(--page) : setPage(++page)
-        console.log("slide!!!",target.getAttribute("direction"),page)
     }
 
     useEffect(()=>{
@@ -30,7 +27,7 @@ const Main = ()=>{
                 logo="CHAN"
                 mail='tztx2004@gmail.com' 
                 navbar = {["Home","About Me","Project","Skills","Info"]}
-                
+                theme = {page===2 || page===4 || page===5 ? "light":""}
                 />
             {page<5 && <Navbtn direction="right" page={page} onClick={(e: MouseEvent)=>slide(e)} />}
             {page>1 && <Navbtn direction="left" page={page} onClick={slide} />}
