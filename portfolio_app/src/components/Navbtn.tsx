@@ -22,10 +22,9 @@ const Btn = styled.div<NavbtnType>`
     cursor: pointer;
 `;
 
-const Navbtn = ({direction, page}:NavbtnType)=>{
-    
+const Navbtn = ({direction, page, onClick}:NavbtnType)=>{
     return( 
-        <Btn className="Navbtn" direction ={direction} page={page} />
+        <Btn className="Navbtn" direction ={direction} page={page} onClick={onClick}/>
     )
 }
 

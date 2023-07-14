@@ -188,6 +188,7 @@ const Project = ()=>{
         // 초기값
         if(pjnum === 0) document.querySelector(`.pjContent .sliderItem:nth-child(2)`)?.classList.add('on')
 
+        // 오른쪽 화살표 클릭
         const handleRightArrowClick = () => {
             if(pjnum<pjArr.length-1) setPjnum(++pjnum);
             let prevSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+1})`)
@@ -196,6 +197,7 @@ const Project = ()=>{
             si?.classList.add("on")
         };
 
+        // 왼쪽 화살표 클릭
         const handleLeftArrowClick = () => {
             if(pjnum>0) setPjnum(--pjnum);
             let afterSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum+3})`)
