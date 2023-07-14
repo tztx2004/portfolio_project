@@ -9,7 +9,7 @@ import Skills from "../components/Skills";
 
 
 const Main = ()=>{
-    let [page, setPage] = useState<number>(1)
+    let [page, setPage] = useState<number>(4)
     
     const slide = (e: MouseEvent) => {
         let target = e.currentTarget;
