@@ -1,22 +1,26 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import Navbtn from "../components/Navbtn";
 import PageCounter from "../components/PageCounter";
 import Top from "../components/Top";
 import Home from "../components/home";
 import About from "../components/AboutMe";
+import Project from "../components/Project";
 
-const onClick = (page:number)=>{
-    console.log("onclick", page)
-    
-}
 
 const Main = ()=>{
-    let [page, setPage] = useState<number>(1)
-    onClick(page)
+    let [page, setPage] = useState<number>(3)
     
-    useEffect(()=>{
-        // let all = document.getElementsByClassName('Navbtn');
+    const slide = (e: MouseEvent) => {
+        let target = e.currentTarget;
+        console.log("slide", target)
+        
+        target.getAttribute("direction") === "left"? setPage(page--) : setPage(page++)
+        console.log("slide!!!",target.getAttribute("direction"),page)
+    }
 
+    useEffect(()=>{
+        let all = document.getElementsByClassName('Navbtn');
+        
         return ()=>{}
     })
 
@@ -28,11 +32,13 @@ const Main = ()=>{
                 navbar = {["Home","About Me","Project","Skills","Info"]}
                 
                 />
-            {page<5 && <Navbtn direction="right" page={page} onClick={onClick} setPage={setPage} />}
-            {page>1 && <Navbtn direction="left" page={page} onClick={onClick} setPage={setPage}  />}
-            
+            {page<5 && <Navbtn direction="right" page={page} onClick={(e: MouseEvent)=>slide(e)} />}
+            {page>1 && <Navbtn direction="left" page={page} onClick={slide}  />}
+
             {page === 1 && <Home />}
             {page === 2  && <About/>}
+            {page === 3  && <Project/>}
+
             <PageCounter page={page} />
         </>
     )

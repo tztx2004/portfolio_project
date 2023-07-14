@@ -4,8 +4,7 @@ import { styled } from "styled-components"
 type NavbtnType = {
     direction: 'right' | 'left';
     onClick?: Function;
-    page: number;
-    setPage: Dispatch<SetStateAction<number>>
+    page?: number;
 }
 
 const Btn = styled.div<NavbtnType>`
@@ -23,18 +22,10 @@ const Btn = styled.div<NavbtnType>`
     cursor: pointer;
 `;
 
-const Navbtn = ({direction, onClick, page, setPage}:NavbtnType)=>{
+const Navbtn = ({direction, page}:NavbtnType)=>{
     
-
-    const slide = (e: MouseEvent) => {
-        let target = e.currentTarget;
-        target.getAttribute("direction") === "left"? setPage(page--) : setPage(page++)
-        console.log("slide!!!",target.getAttribute("direction"),page)
-    }
-
-
     return( 
-        <Btn className="Navbtn" direction ={direction} onClick={slide} page={page} setPage={setPage} />
+        <Btn className="Navbtn" direction ={direction} page={page} />
     )
 }
 
