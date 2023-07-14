@@ -5,10 +5,11 @@ import Top from "../components/Top";
 import Home from "../components/home";
 import About from "../components/AboutMe";
 import Project from "../components/Project";
+import Skills from "../components/Skills";
 
 
 const Main = ()=>{
-    let [page, setPage] = useState<number>(3)
+    let [page, setPage] = useState<number>(4)
     
     const slide = (e: MouseEvent) => {
         let target = e.currentTarget;
@@ -38,6 +39,7 @@ const Main = ()=>{
             {page === 1 && <Home />}
             {page === 2  && <About/>}
             {page === 3  && <Project/>}
+            {page === 4  && <Skills />}
 
             <PageCounter page={page} />
         </>

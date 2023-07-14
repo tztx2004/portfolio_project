@@ -42,7 +42,7 @@ const ProjectWrap = styled.div`
         right: 0;
         width: 20%;
         height: 30px;
-        color: #888;
+        color: var(--skyC);
         display: flex;
         justify-content: space-between;
         font-size: 1.5vw;
@@ -65,6 +65,7 @@ const ProjectWrap = styled.div`
     .sliderItem.on{
         z-index: 1;
         opacity: 1;
+        animation: fadein .8s;
     }
     
     .stack_container{
@@ -83,15 +84,17 @@ const ProjectWrap = styled.div`
         background:var(--whiteC);
         border-radius: 10px;
         aspect-ratio: 1/1;
+        transition: .8s;
     }
-    // .stack_container>div:hover{
-    //     animation: pop .8s;
-    // }
+    .stack_container>div:hover{
+        transform: translateY(-10%)
+    }
     .stack_container img{
         width: 60%;
         height: 70%;
         box-sizing: border-box;
         padding: 10%;
+        
     }
     .stack_container p{
         display:flex;
@@ -127,6 +130,11 @@ const ProjectWrap = styled.div`
     .right_container img{
         width: 100%;
         border-radius: 20px;
+        transition: .8s;
+        box-shadow: 5px 5px 5px 0px var(--skyC);
+    }
+    .right_container img:hover {
+        transform: scale(1.02);
     }
 `;
 
@@ -153,7 +161,7 @@ const Project = ()=>{
             'thumb':'./images/nasa.png',
             'url': 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/04.%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/solarsystem/main.html',
             'tags': [[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
-            'desc': ``,
+            'desc': `NASA의 웹페이지를 주제로 만든 팀프로젝트입니다. Vanila Javascript를 사용하여 제작하였으며, 스와이퍼 플러그인을 도입하였습니다. 또한, NASA에서 제공하는 iframe을 사용하여 입체감있는 행성을 표현할 수 있었습니다. `,
         },
         {
             'id':3,
@@ -162,7 +170,7 @@ const Project = ()=>{
             'thumb':'./images/musium.png',
             'url': 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/02.%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%9B%B9&%EC%95%B1%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html',
             'tags': [[vue,'vue'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
-            'desc': ``,
+            'desc': `그림을 판매하는 페이지를 제작하였습니다. 실제 판매를 하고 있지는 않습니다. jQuery와 Vue.JS를 사용하여 데이터를 바인딩하고 로직을 구현했습니다. 해당 프로젝트를 진행하면서 Vue.JS와 jQuery의 동작원리를 이해할 수 있었습니다.`,
         },
         {
             'id':4,
@@ -171,7 +179,7 @@ const Project = ()=>{
             'thumb':'./images/ai.png',
             'url': 'https://spa-ai.vercel.app/Main',
             'tags': [[react,'react'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
-            'desc': ``,
+            'desc': `AI MODEL을 주제로하여 만든 웹사이트입니다. SPA(Single Page Application)으로 제작하기 위해 React.JS 라이브러리를 사용했습니다. 스크롤 이벤트 시 여러 효과를 보여줄 수 있는 형태로 만들었습니다. 프로젝트를 진행하면서 SPA와 React에 대한 깊은 이해를 할 수 있었습니다.`,
         },
     ]
 
