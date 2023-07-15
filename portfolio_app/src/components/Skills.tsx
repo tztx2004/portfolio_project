@@ -13,7 +13,6 @@ const SkillPart = styled.div`
         font-size: 4vw;
     }
     .skill{
-        
         display: flex;
         flex-direction: column;
         width: 70%;

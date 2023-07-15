@@ -6,10 +6,12 @@ import Home from "../components/home";
 import About from "../components/AboutMe";
 import Project from "../components/Project";
 import Skills from "../components/Skills";
+import Info from "../components/Info";
+import Ref from "../components/Ref";
 
 
 const Main = ()=>{
-    let [page, setPage] = useState<number>(4)
+    let [page, setPage] = useState<number>(5)
     
     const slide = (e: MouseEvent) => {
         let target = e.currentTarget;
@@ -28,7 +30,7 @@ const Main = ()=>{
                 mail='tztx2004@gmail.com' 
                 navbar = {["Home","About Me","Project","Skills","Info"]}
                 theme = {page===2 || page===4 || page===5 ? "light":""}
-                />
+            />
             {page<5 && <Navbtn direction="right" page={page} onClick={(e: MouseEvent)=>slide(e)} />}
             {page>1 && <Navbtn direction="left" page={page} onClick={slide} />}
 
@@ -36,7 +38,9 @@ const Main = ()=>{
             {page === 2  && <About/>}
             {page === 3  && <Project/>}
             {page === 4  && <Skills />}
+            {page === 5  && <Info />}
 
+            <Ref/>
             <PageCounter page={page} />
         </>
     )
