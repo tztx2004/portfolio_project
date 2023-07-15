@@ -9,6 +9,8 @@ const react = '/images/logo/React.svg';
 const github = '/images/logo/GITHUB.svg';
 const vue = '/images/logo/Vue.svg';
 const jquery = '/images/logo/jquery.svg';
+const ts = '/images/logo/ts.svg';
+const st = '/images/logo/st.svg';
 
 
 const ProjectWrap = styled.div`
@@ -182,6 +184,9 @@ const ProjectWrap = styled.div`
         .desc p{
             font-size: 3vw;
         }
+        .stack_container p{
+            font-size: 12px;
+        }
     }
 `;
 
@@ -227,6 +232,15 @@ const Project = ()=>{
             'url': 'https://spa-ai.vercel.app/Main',
             'tags': [[react,'react'],[jquery,'jquery'],[js,'js'],[html,'html'],[css,'css'],[github,'github'],],
             'desc': `AI MODEL을 주제로하여 만든 웹사이트입니다. SPA(Single Page Application)으로 제작하기 위해 React.JS 라이브러리를 사용했습니다. 스크롤 이벤트 시 여러 효과를 보여줄 수 있는 형태로 만들었습니다. 프로젝트를 진행하면서 SPA와 React에 대한 깊은 이해를 할 수 있었습니다.`,
+        },
+        {
+            'id':5,
+            'title':"Portflio",
+            'date': "2023.07 ~ 2023.08",
+            'thumb':'./images/portfolio.png',
+            'url': 'https://spa-ai.vercel.app/Main',
+            'tags': [[react,'react'],[ts,"ts"],[js,'js'],[st,'styled-components'],[html,'html'],[css,'css'],[github,'github'],],
+            'desc': `타입스크립트를 도입하여 리액트와 함께 포트폴리오 페이지를 제작하였습니다. Javascript를 사용하면 생길 수 있는 Run time error를 해결할 수 있었습니다. 또한, styled-component를 적용하여 더 효율적으로 디자인을 변경할 수 있었습니다.`,
         },
     ]
 
