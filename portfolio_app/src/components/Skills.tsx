@@ -1,4 +1,13 @@
-import { styled } from "styled-components"
+import { styled, keyframes } from "styled-components"
+
+const percentageBarMoveAnimation = keyframes`
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--widthTarget);
+    }
+`
 
 const SkillPart = styled.div`
     width: 100%;
@@ -104,6 +113,22 @@ const SkillPart = styled.div`
     }
 `
 
+const ProgressBar = styled.div<{ percent: string }>`
+    height: 5px;
+    width: 100%;
+    background: #888;
+    position: relative;
+    &:before {
+        content: '';
+        height: 100%;
+        position: absolute;
+        background: var(--blueC);
+        --widthTarget: ${props => props.percent};
+        width: ${props => props.percent};
+        animation: ${percentageBarMoveAnimation} 1s;
+    }
+`;
+
 const Skills = ()=>{
     const tagbox = ['React.JS','Vue.JS','Vuex','jQuery','Javascript','HTML5','CSS3',]
     const stack = [
@@ -150,9 +175,7 @@ const Skills = ()=>{
                                 stack.map((x,i)=>
                                     <div key={i} className="item">
                                         <h3>{x.title}({x.score})</h3>
-                                        <div className="progress_bar">
-                                            <div style={{width:x.score}}></div>
-                                        </div>
+                                        <ProgressBar percent={x.score} />
                                     </div>
                                 )
                             }
