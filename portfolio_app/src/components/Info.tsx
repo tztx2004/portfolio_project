@@ -12,10 +12,12 @@ const InfoWrap = styled.div`
         width: 70%;
         height: 60%;
         animation: fadein .8s;
-
         >h2{
             font-size: 4vw;
             margin-bottom: 5%;
+            @media screen and (max-width: 600px){
+                font-size: 10vw;
+            }
         }
         >div{
             width: 100%;
@@ -24,9 +26,14 @@ const InfoWrap = styled.div`
             grid-template-columns: repeat(2, minmax(auto, 1fr));
             box-sizing: border-box;
             padding: 2% 0%;
+
+            @media screen and (max-width: 600px){
+                grid-template-columns: repeat(1, minmax(auto, 1fr));
+            }
         }
 
     }
+
 `;
 
 const Info = ()=>{

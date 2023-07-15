@@ -136,6 +136,53 @@ const ProjectWrap = styled.div`
     .right_container img:hover {
         transform: scale(1.02);
     }
+
+    @media screen and (max-width: 750px){
+        .header{
+            flex-direction: column-reverse
+        }
+        .numSliderPart{
+            font-size: 2.5vw;
+        }
+        .right_container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .left_container{
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 15px;
+            text-align: center;
+            >h3{
+                font-size: 2vw;
+            }
+            .stack_container{
+                margin: 0 auto;
+
+            }
+        }
+        .desc{
+            margin: 0 auto;
+            margin-top: 5%;
+        }
+    }
+
+    @media screen and (max-width: 450px){
+        .left_container{
+            >h2{
+                font-size: 5vw;
+            }
+        }
+        .numSliderPart{
+            font-size: 3.2vw;
+        }
+        .right_container{
+            width: 80%;
+        }
+        .desc p{
+            font-size: 3vw;
+        }
+    }
 `;
 
 

@@ -40,6 +40,25 @@ const AboutWrap = styled.div`
     .txtObj p{
         font-size: 1vw;
     }
+
+    @media screen and (max-width: 900px){
+        flex-direction: column;
+        .year_part{
+            margin: 0;
+        }
+        .txt_title>h2{
+            font-size: 3.2vw;
+        }
+        .txt_sum{
+            margin-top: 7vh;
+        }
+        .txtObj h3{
+            font-size: 2.5vw;
+        }
+        .txtObj p{
+            font-size: 1.7vw;
+        }
+    }
 `
 
 const About = ()=>{

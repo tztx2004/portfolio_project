@@ -20,6 +20,12 @@ const Btn = styled.div<NavbtnType>`
 
     transform: translateY(-50%) rotate(${props=>props.direction ==="left"? '45': '225'}deg);
     cursor: pointer;
+
+    @media screen and (max-width: 500px){
+        ${props=>props.direction}: 20px;
+        width: 30px;
+        height: 30px;
+    }
 `;
 
 const Navbtn = ({direction, page, onClick}:NavbtnType)=>{

@@ -46,3 +46,44 @@
     font-size: 1.2vw;
     color: #F6F5F1;
 }
+
+@media screen and (max-width: 800px) {
+    .homeWrap{
+        flex-direction: column;
+        gap: 0;
+    }
+    .homeImg{
+        width: 45%;
+    }
+    .homeTxt{
+        width: 45%;
+        height: 200px;
+    }
+    .homeTxt h2{
+        font-size: 4vw;
+    }
+    .homeTxt h1{
+        font-size: 4vw;
+    }
+    .homeTxt h3{
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .homeImg{
+        width: 70%;
+    }
+    .homeTxt{
+        width: 70%;
+    }
+    .homeTxt h2{
+        font-size: 6vw;
+    }
+    .homeTxt h1{
+        font-size: 6vw;
+    }
+    .homeTxt h3{
+        font-size: 4vw;
+    }
+}

@@ -28,6 +28,7 @@ const SkillPart = styled.div`
             width: 45%;
             background: url(./images/skills.png) no-repeat center/cover;
             background-size: 80%;
+            background-position-y: 10%;
         }
 
         .right_box{
@@ -56,6 +57,48 @@ const SkillPart = styled.div`
                 height: 100%;
                 position: absolute;
                 background: var(--blueC);
+            }
+        }
+
+        @media screen and (max-width: 800px){
+            height: 80%;
+
+            .skill_content_part{
+                flex-direction: column;
+                align-items: center;
+                .left_box{
+                    aspect-ratio: 1/1;
+                }
+            }
+            .right_box{
+                width: 80%;
+                >h2{
+                    font-size: 2.7vw;
+                }
+                .tagbox{
+                    font-size: 1.5vw;
+                }
+                .item h3{
+                    font-size: 2vw;
+                }
+            }
+        }
+
+        @media screen and (max-width: 500px){
+            .left_box{
+                width: 80%;
+            }
+            .skill_content_part{
+                justify-content: center;
+            }
+            .right_box{
+                >h2{
+                    font-size: 5vw;
+                }
+                .item h3{
+                    font-size: 3vw;
+                }
+
             }
         }
     }

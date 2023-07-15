@@ -56,6 +56,15 @@
     width: 30%;
     height: 100%;
 }
+@media screen and (max-width: 700px) {
+    .navBar{
+        width: 100%;
+    }
+    .hambtn{
+        gap: 5px;
+        justify-content: normal;
+    }
+}
 .nav_wrap{
     width: 100%;
     top: 0;
@@ -102,6 +111,7 @@
 }
 .navBar>.nav_wrap>ul>li{
     margin-bottom: 30%;
+    white-space: nowrap;
 }
 .navBar a{
     font-size: 40px;
@@ -109,4 +119,19 @@
 }
 .navBar a:hover{
     color: #eee;
+}
+
+
+@media screen and (max-width: 500px) {
+    .topBar{
+        height: 40%;
+        font-size: 4vw;
+        gap: 70%;
+        margin-top: 15px;
+        justify-content: center;
+        align-items: center
+    }
+    .mail{
+        display: none;
+    }
 }

@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { Dispatch, MouseEvent, SetStateAction, useEffect, useState } from "react";
 
 import "../style/top.css";
 
@@ -7,17 +7,24 @@ export interface PropsTop {
     mail: string;
     navbar: string[];
     theme?: string;
+    setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 type Navbar = {
     navbar: string[]
     navSt: boolean
     setNavSt: Dispatch<SetStateAction<boolean>>
-
+    setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
-function NavBar({ navbar, navSt, setNavSt } :Navbar){
+function NavBar({ navbar, navSt, setNavSt, setPage } :Navbar){
     
+    const handleclick = (e:MouseEvent, i:number)=>{
+        e.preventDefault();
+        setPage(i)
+        setNavSt(false);
+    }
+
     return(
         <div className="navBar">
             <div className="nav_wrap">
@@ -26,7 +33,7 @@ function NavBar({ navbar, navSt, setNavSt } :Navbar){
                     {
                         navbar.map((x, i) => (
                             <li key={i}>
-                                <a href="#">{x}</a>
+                                <a href="#" onClick={(e)=>handleclick(e, i+1)}>{x}</a>
                             </li>
                         ))
                     }
@@ -39,7 +46,7 @@ function NavBar({ navbar, navSt, setNavSt } :Navbar){
 
 
 export default function Top(props: PropsTop): JSX.Element {
-    const { logo, mail, navbar, theme } = props;
+    const { logo, mail, navbar, theme, setPage } = props;
     
     // 네비게이션 버튼 활성화 변수
     const [navSt, setNavSt] = useState<boolean>(false)
@@ -59,7 +66,7 @@ export default function Top(props: PropsTop): JSX.Element {
                     <span></span>
                 </div>
             </div>
-            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt} />}
+            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt} setPage={setPage} />}
         </div>
     );
 }
