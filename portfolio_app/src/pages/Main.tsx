@@ -1,4 +1,5 @@
 import { MouseEvent, useEffect, useState } from "react";
+import { styled } from "styled-components";
 import Navbtn from "../components/Navbtn";
 import PageCounter from "../components/PageCounter";
 import Top from "../components/Top";
@@ -9,6 +10,27 @@ import Skills from "../components/Skills";
 import Info from "../components/Info";
 //import Ref from "../components/ref";
 
+
+const RefWrap = styled.div`
+    position: fixed;
+    width: 50%;
+    height: 60px;
+    bottom: 0;
+    left: 5%;
+    color: #888;
+    font-size: 1vw;
+`
+
+const Ref = ()=>{
+    return(
+        <RefWrap>
+            <div>
+                <h3>Made by Chan Jung</h3>
+                <h3>Referenced : MinSeok Kim</h3>
+            </div>
+        </RefWrap>
+    )
+};
 
 const Main = ()=>{
     let [page, setPage] = useState<number>(1)
@@ -43,7 +65,7 @@ const Main = ()=>{
             {page === 4  && <Skills />}
             {page === 5  && <Info />}
 
-            {/* <Ref/> */}
+            <Ref/>
             <PageCounter page={page} />
         </>
     )
