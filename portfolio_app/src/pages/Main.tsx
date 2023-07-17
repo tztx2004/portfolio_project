@@ -7,7 +7,7 @@ import About from "../components/AboutMe";
 import Project from "../components/Project";
 import Skills from "../components/Skills";
 import Info from "../components/Info";
-// import Ref from "@/components/ref";
+import Ref from "@/components/ref.js";
 
 
 const Main = ()=>{
@@ -43,7 +43,7 @@ const Main = ()=>{
             {page === 4  && <Skills />}
             {page === 5  && <Info />}
 
-            {/* <Ref/> */}
+            <Ref/>
             <PageCounter page={page} />
         </>
     )
