@@ -12,7 +12,7 @@ const Project = () => {
     // 오른쪽 화살표 클릭
     const handleRightArrowClick = () => {
       if (pjnum < pjArr.length - 1) setPjnum(++pjnum);
-      let prevSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 1})`);
+      const prevSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 1})`);
       prevSi?.classList.remove("on");
       let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 2})`);
       si?.classList.add("on");
@@ -21,7 +21,7 @@ const Project = () => {
     // 왼쪽 화살표 클릭
     const handleLeftArrowClick = () => {
       if (pjnum > 0) setPjnum(--pjnum);
-      let afterSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 3})`);
+      const afterSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 3})`);
       afterSi?.classList.remove("on");
       let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 2})`);
       si?.classList.add("on");
@@ -50,6 +50,7 @@ const Project = () => {
             </span>
             <span className="right_arrow"> → </span>
           </div>
+
           {sortedPjArr.map((x, i) => (
             <div key={i} className="sliderItem">
               <section className="slider_section">
