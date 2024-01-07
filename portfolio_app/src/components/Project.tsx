@@ -62,7 +62,7 @@ const Project = () => {
                       {x.tags.map((y, j) => (
                         <div key={j}>
                           <img src={y[0]} alt={y[1]} />
-                          <p>{y[1]}</p>
+                          {y[1].length > 10 ? <p style={{ fontSize: "10px" }}>{y[1]}</p> : <p>{y[1]}</p>}
                         </div>
                       ))}
                     </div>
@@ -146,7 +146,7 @@ const ProjectWrap = styled.div`
     width: 80%;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
     gap: 5px;
   }
   .stack_container > div {
@@ -196,6 +196,8 @@ const ProjectWrap = styled.div`
     margin-top: 10%;
     width: 90%;
     word-break: keep-all;
+    text-align: justify;
+    line-height: 1.4;
   }
   .right_container {
     width: 50%;

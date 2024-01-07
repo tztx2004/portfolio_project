@@ -118,6 +118,6 @@ export const pjArr = [
       [docker, "docker"],
       [python, "python"],
     ],
-    desc: `알뜰폰 비교 요금제 플랫폼 '폰비'에서 프론트엔드 개발자로 근무하였습니다. Next Js, Vanilla Extract Css, Jotai 등을 사용하여 제작하였습니다. 또한, 크롤링을 통해 데이터를 수집하였고, Docker와 EC2로 배포하는 과정을 경험하며 개발자로의 성장을 도모할 수 있었습니다`,
+    desc: `알뜰폰 비교 요금제 플랫폼 '폰비'에서 프론트엔드 개발자로 근무하였습니다. Next Js, Vanilla Extract Css, Jotai 등을 사용하여 제작하였습니다. 또한, 크롤링을 통해 데이터를 수집하였고, Docker와 EC2로 배포하는 과정을 경험하며 product를 완성시켰고 서비스를 런칭할 수 있었습니다.`,
   },
 ];
