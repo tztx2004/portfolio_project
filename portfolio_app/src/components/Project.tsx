@@ -123,7 +123,7 @@ const ProjectWrap = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
+    gap: 12px;
   }
   .pjTitle {
     width: 100%;
@@ -138,7 +138,6 @@ const ProjectWrap = styled.div`
     top: -30px;
     right: 0;
     width: 20%;
-    height: 30px;
     color: var(--skyC);
     display: flex;
     justify-content: space-between;
