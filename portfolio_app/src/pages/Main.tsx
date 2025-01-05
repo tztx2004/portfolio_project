@@ -10,65 +10,65 @@ import Skills from "../components/Skills";
 import Info from "../components/Info";
 //import Ref from "../components/ref";
 
-
 const RefWrap = styled.div`
-    position: fixed;
-    width: 50%;
-    height: 60px;
-    bottom: 0;
-    left: 5%;
-    color: #888;
-    font-size: 1vw;
-`
+  position: fixed;
+  width: 50%;
+  bottom: 30px;
+  left: 5%;
+  color: #888;
+  font-size: max(14px, 1vw);
+`;
 
-const Ref = ()=>{
-    return(
-        <RefWrap>
-            <div>
-                <h3>Made by Chan Jung</h3>
-                <h3>Referenced : MinSeok Kim</h3>
-            </div>
-        </RefWrap>
-    )
+const Ref = () => {
+  return (
+    <RefWrap>
+      <h3>Made by Chan Jung</h3>
+    </RefWrap>
+  );
 };
 
-const Main = ()=>{
-    let [page, setPage] = useState<number>(1)
-    
-    const slide = (e: MouseEvent) => {
-        let target = e.currentTarget;
-        target.getAttribute("direction") === "left"? setPage(--page) : setPage(++page)
-    }
+const Main = () => {
+  let [page, setPage] = useState<number>(1);
 
-    useEffect(()=>{
-        
-        return ()=>{}
-    })
+  const slide = (e: MouseEvent) => {
+    let target = e.currentTarget;
+    target.getAttribute("direction") === "left"
+      ? setPage(--page)
+      : setPage(++page);
+  };
 
-    return(
-        <>
-            <Top
-                logo="CHAN"
-                mail='tztx2004@gmail.com' 
-                navbar = {["Home","About Me","Project","Skills","Info"]}
-                theme = {page===2 || page===4 || page===5 ? "light":""}
-                setPage = {setPage}
-            />
-            {page<5 &&
-                <Navbtn direction="right" page={page} onClick={(e: MouseEvent)=>slide(e)} />}
-            {page>1 &&
-                <Navbtn direction="left" page={page} onClick={slide} />}
+  useEffect(() => {
+    return () => {};
+  });
 
-            {page === 1 && <Home />}
-            {page === 2  && <About />}
-            {page === 3  && <Project />}
-            {page === 4  && <Skills />}
-            {page === 5  && <Info />}
+  return (
+    <>
+      <Top
+        logo="CHAN"
+        mail="tztx2004@gmail.com"
+        navbar={["Home", "About Me", "Project", "Skills", "Info"]}
+        theme={page === 2 || page === 4 || page === 5 ? "light" : ""}
+        setPage={setPage}
+      />
+      {page < 5 && (
+        <Navbtn
+          direction="right"
+          page={page}
+          onClick={(e: MouseEvent) => slide(e)}
+        />
+      )}
+      {page > 1 && <Navbtn direction="left" page={page} onClick={slide} />}
 
-            <Ref/>
-            <PageCounter page={page} />
-        </>
-    )
-}
+      {page === 1 && <Home />}
+      {page === 2 && <About />}
+      {page === 3 && <Project />}
+      {page === 4 && <Skills />}
+      {page === 5 && <Info />}
+
+      <Ref />
+      <PageCounter page={page} />
+    </>
+  );
+};
 
 export default Main;

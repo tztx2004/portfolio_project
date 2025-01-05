@@ -6,7 +6,7 @@ const About = () => {
     <AboutWrapper>
       <AboutWrap>
         <div className="year_part">
-          <h2>FreshMan</h2>
+          <h2>Front-end</h2>
           <h3>Developer;</h3>
         </div>
         <div className="txt_part">
@@ -50,22 +50,40 @@ const AboutWrap = styled.div`
     color: var(--blueC);
     font-size: 30px;
     margin-bottom: 25%;
+    min-width: 150px;
+
+    > h2 {
+      word-break: keep-all;
+      font-size: max(32px, 2vw);
+    }
+    > h3 {
+      font-size: max(24px, 1.5vw);
+    }
+  }
+  .txt_part {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media screen and (max-height: 800px) {
+    .txt_sum {
+      grid-template-columns: repeat(1, minmax(auto, 1fr));
+    }
   }
 
   .txt_title h2 {
-    font-size: 2vw;
+    font-size: max(24px, 2vw);
   }
   .txt_sum {
-    margin-top: 10vh;
     display: grid;
     grid-template-columns: repeat(2, minmax(auto, 1fr));
     gap: 20px;
   }
-  .txtObj {
-    width: 85%;
-  }
+
   .txtObj h3 {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    font-weight: bold;
     margin-bottom: 5px;
   }
   .txtObj p {
@@ -80,16 +98,26 @@ const AboutWrap = styled.div`
       margin: 0;
     }
     .txt_title > h2 {
-      font-size: 3.2vw;
+      font-size: max(20px, 2vw);
     }
     .txt_sum {
       margin-top: 7vh;
     }
     .txtObj h3 {
-      font-size: 2.5vw;
+      font-size: max(20px, 2.5vw);
     }
     .txtObj p {
-      font-size: 1.7vw;
+      font-size: max(16px, 2vw);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .txtObj {
+      padding: 0 10px;
+    }
+    .txt_sum {
+      grid-template-columns: repeat(1, minmax(auto, 1fr));
+      height: 300px;
+      overflow-y: auto; /* 수직 스크롤바 추가 */
     }
   }
 `;
