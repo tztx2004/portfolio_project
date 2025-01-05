@@ -7,32 +7,51 @@ const Project = () => {
 
   useEffect(() => {
     // 초기값
-    if (pjnum === 0) document.querySelector(`.pjContent .sliderItem:nth-child(2)`)?.classList.add("on");
+    if (pjnum === 0)
+      document
+        .querySelector(`.pjContent .sliderItem:nth-child(2)`)
+        ?.classList.add("on");
 
     // 오른쪽 화살표 클릭
     const handleRightArrowClick = () => {
       if (pjnum < pjArr.length - 1) setPjnum(++pjnum);
-      const prevSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 1})`);
+      const prevSi = document.querySelector(
+        `.pjContent .sliderItem:nth-child(${pjnum + 1})`
+      );
       prevSi?.classList.remove("on");
-      let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 2})`);
+      let si = document.querySelector(
+        `.pjContent .sliderItem:nth-child(${pjnum + 2})`
+      );
       si?.classList.add("on");
     };
 
     // 왼쪽 화살표 클릭
     const handleLeftArrowClick = () => {
       if (pjnum > 0) setPjnum(--pjnum);
-      const afterSi = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 3})`);
+      const afterSi = document.querySelector(
+        `.pjContent .sliderItem:nth-child(${pjnum + 3})`
+      );
       afterSi?.classList.remove("on");
-      let si = document.querySelector(`.pjContent .sliderItem:nth-child(${pjnum + 2})`);
+      let si = document.querySelector(
+        `.pjContent .sliderItem:nth-child(${pjnum + 2})`
+      );
       si?.classList.add("on");
     };
 
-    document.querySelector(".right_arrow")?.addEventListener("click", handleRightArrowClick);
-    document.querySelector(".left_arrow")?.addEventListener("click", handleLeftArrowClick);
+    document
+      .querySelector(".right_arrow")
+      ?.addEventListener("click", handleRightArrowClick);
+    document
+      .querySelector(".left_arrow")
+      ?.addEventListener("click", handleLeftArrowClick);
 
     return () => {
-      document.querySelector(".right_arrow")?.removeEventListener("click", handleRightArrowClick);
-      document.querySelector(".left_arrow")?.removeEventListener("click", handleLeftArrowClick);
+      document
+        .querySelector(".right_arrow")
+        ?.removeEventListener("click", handleRightArrowClick);
+      document
+        .querySelector(".left_arrow")
+        ?.removeEventListener("click", handleLeftArrowClick);
     };
   }, [pjnum]);
 
@@ -62,7 +81,11 @@ const Project = () => {
                       {x.tags.map((y, j) => (
                         <div key={j}>
                           <img src={y[0]} alt={y[1]} />
-                          {y[1].length > 10 ? <p style={{ fontSize: "10px" }}>{y[1]}</p> : <p>{y[1]}</p>}
+                          {y[1].length > 10 ? (
+                            <p style={{ fontSize: "10px" }}>{y[1]}</p>
+                          ) : (
+                            <p>{y[1]}</p>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -143,10 +166,10 @@ const ProjectWrap = styled.div`
   }
 
   .stack_container {
-    width: 80%;
+    width: 100%;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
     gap: 5px;
   }
   .stack_container > div {
@@ -194,7 +217,7 @@ const ProjectWrap = styled.div`
   }
   .desc {
     margin-top: 10%;
-    width: 90%;
+    width: 100%;
     word-break: keep-all;
     text-align: justify;
     line-height: 1.4;
