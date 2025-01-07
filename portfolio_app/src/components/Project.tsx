@@ -168,7 +168,7 @@ const ProjectWrap = styled.div`
     width: 100%;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
     gap: 5px;
   }
   .stack_container > div {
