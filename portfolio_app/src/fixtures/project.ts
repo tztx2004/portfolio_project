@@ -23,8 +23,8 @@ export const pjArr = [
     id: 1,
     title: 'Apple iPhone 14 Pro',
     date: '2023.03 ~ 2023.04',
-    thumb: './images/apple.png',
-    url: 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/apple.html',
+    thumb: '/images/apple.png',
+    url: 'https://tztx2004.github.io/FED-PJ-WBS-CHAN/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/apple.html',
     tags: [
       [js, 'js'],
       [html, 'html'],
@@ -37,8 +37,8 @@ export const pjArr = [
     id: 2,
     title: 'NASA',
     date: '2023.04 ~ 2023.05',
-    thumb: './images/nasa.png',
-    url: 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/04.%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/solarsystem/main.html',
+    thumb: '/images/nasa.png',
+    url: 'https://tztx2004.github.io/FED-PJ-WBS-CHAN/04.%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/solarsystem/main.html',
     tags: [
       [js, 'js'],
       [html, 'html'],
@@ -51,8 +51,8 @@ export const pjArr = [
     id: 3,
     title: '그림판매 사이트',
     date: '2023.05 ~ 2023.06',
-    thumb: './images/musium.png',
-    url: 'https://tztx2004.github.io./FED-PJ-WBS-CHAN/02.%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%9B%B9&%EC%95%B1%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html',
+    thumb: '/images/musium.png',
+    url: 'https://tztx2004.github.io/FED-PJ-WBS-CHAN/02.%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%9B%B9&%EC%95%B1%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html',
     tags: [
       [vue, 'vue'],
       [jquery, 'jquery'],
@@ -67,7 +67,7 @@ export const pjArr = [
     id: 4,
     title: 'AI MODEL',
     date: '2023.06 ~ 2023.07',
-    thumb: './images/ai.png',
+    thumb: '/images/ai.png',
     url: 'https://spa-ai.vercel.app/Main',
     tags: [
       [react, 'react'],
@@ -81,9 +81,9 @@ export const pjArr = [
   },
   {
     id: 5,
-    title: 'Portflio',
+    title: 'Portfolio',
     date: '2023.07 ~ 2023.08',
-    thumb: './images/portfolio.png',
+    thumb: '/images/portfolio.png',
     url: '',
     tags: [
       [react, 'react'],
@@ -100,7 +100,7 @@ export const pjArr = [
     id: 6,
     title: 'Phoneb',
     date: '2023.08 ~ 2025.01',
-    thumb: './images/phoneb.png',
+    thumb: '/images/phoneb.png',
     url: 'https://www.phoneb.co.kr',
     tags: [
       [nextjs, 'Next.js'],
@@ -124,7 +124,7 @@ export const pjArr = [
     id: 7,
     title: 'AI-gement',
     date: '2025.03 ~ 2025.12',
-    thumb: './images/plyn.png',
+    thumb: '/images/plyn.png',
     url: 'https://plynai.com/ko/',
     tags: [
       [nextjs, 'Next.js'],

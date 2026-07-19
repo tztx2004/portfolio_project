@@ -1,61 +1,15 @@
 import { pjArr } from "../fixtures/project";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
 
+const sortedPjArr = [...pjArr].sort((a, b) => b.id - a.id);
+
 const Project = () => {
-  let [pjnum, setPjnum] = useState<number>(0);
+  const [pjnum, setPjnum] = useState(0);
 
-  useEffect(() => {
-    // 초기값
-    if (pjnum === 0)
-      document
-        .querySelector(`.pjContent .sliderItem:nth-child(2)`)
-        ?.classList.add("on");
-
-    // 오른쪽 화살표 클릭
-    const handleRightArrowClick = () => {
-      if (pjnum < pjArr.length - 1) setPjnum(++pjnum);
-      const prevSi = document.querySelector(
-        `.pjContent .sliderItem:nth-child(${pjnum + 1})`
-      );
-      prevSi?.classList.remove("on");
-      let si = document.querySelector(
-        `.pjContent .sliderItem:nth-child(${pjnum + 2})`
-      );
-      si?.classList.add("on");
-    };
-
-    // 왼쪽 화살표 클릭
-    const handleLeftArrowClick = () => {
-      if (pjnum > 0) setPjnum(--pjnum);
-      const afterSi = document.querySelector(
-        `.pjContent .sliderItem:nth-child(${pjnum + 3})`
-      );
-      afterSi?.classList.remove("on");
-      let si = document.querySelector(
-        `.pjContent .sliderItem:nth-child(${pjnum + 2})`
-      );
-      si?.classList.add("on");
-    };
-
-    document
-      .querySelector(".right_arrow")
-      ?.addEventListener("click", handleRightArrowClick);
-    document
-      .querySelector(".left_arrow")
-      ?.addEventListener("click", handleLeftArrowClick);
-
-    return () => {
-      document
-        .querySelector(".right_arrow")
-        ?.removeEventListener("click", handleRightArrowClick);
-      document
-        .querySelector(".left_arrow")
-        ?.removeEventListener("click", handleLeftArrowClick);
-    };
-  }, [pjnum]);
-
-  const sortedPjArr = pjArr.sort((a: any, b: any) => b.id - a.id);
+  const showPrev = () => setPjnum((prev) => Math.max(prev - 1, 0));
+  const showNext = () =>
+    setPjnum((prev) => Math.min(prev + 1, sortedPjArr.length - 1));
 
   return (
     <ProjectWrap>
@@ -63,29 +17,34 @@ const Project = () => {
         <h2 className="pjTitle">Project & Experience</h2>
         <div className="pjContent">
           <div className="numSliderPart">
-            <span className="left_arrow"> ← </span>
-            <span>
-              {pjArr.length + 1 - pjArr[pjnum].id} / {pjArr.length}
+            <span className="left_arrow" onClick={showPrev}>
+              ←
             </span>
-            <span className="right_arrow"> → </span>
+            <span>
+              {pjnum + 1} / {sortedPjArr.length}
+            </span>
+            <span className="right_arrow" onClick={showNext}>
+              →
+            </span>
           </div>
 
           {sortedPjArr.map((x, i) => (
-            <div key={i} className="sliderItem">
+            <div
+              key={x.id}
+              className={i === pjnum ? "sliderItem on" : "sliderItem"}
+            >
               <section className="slider_section">
                 <div className="header">
                   <div className="left_container">
                     <h2>{x.title}</h2>
                     <h3>{x.date}</h3>
                     <div className="stack_container">
-                      {x.tags.map((y, j) => (
-                        <div key={j}>
-                          <img src={y[0]} alt={y[1]} />
-                          {y[1].length > 10 ? (
-                            <p style={{ fontSize: "10px" }}>{y[1]}</p>
-                          ) : (
-                            <p>{y[1]}</p>
-                          )}
+                      {x.tags.map(([logo, name]) => (
+                        <div key={name}>
+                          <img src={logo} alt={name} />
+                          <p style={name.length > 10 ? { fontSize: "10px" } : undefined}>
+                            {name}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -95,7 +54,7 @@ const Project = () => {
                   </div>
                   <div className="right_container">
                     <a href={x.url} target="_blank" rel="noreferrer">
-                      <img src={x.thumb} alt={x.title + "사진"} />
+                      <img src={x.thumb} alt={x.title + " 사진"} />
                     </a>
                   </div>
                 </div>

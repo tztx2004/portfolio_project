@@ -18,7 +18,7 @@
 }
 
 .homeImg{
-    background: url(../../public/images/myimg.jpg) no-repeat center/cover;
+    background: url(/images/myimg.jpg) no-repeat center/cover;
     background-position: 0 100%;
     width: 30%;
     aspect-ratio: 1/1;

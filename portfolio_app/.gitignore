@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# macOS AppleDouble files
+._*
+
+# 개인 문서 (이력서 등)
+*.pdf
+
+# vite
+/dist

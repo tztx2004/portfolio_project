@@ -113,11 +113,16 @@
     margin-bottom: 30%;
     white-space: nowrap;
 }
-.navBar a{
+.navBar .navLink{
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
     font-size: 40px;
     color: #888;
 }
-.navBar a:hover{
+.navBar .navLink:hover{
     color: #eee;
 }
 

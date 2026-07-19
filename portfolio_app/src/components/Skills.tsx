@@ -35,7 +35,7 @@ const SkillPart = styled.div`
         }
         .left_box{
             width: 45%;
-            background: url(./images/skills.png) no-repeat center/cover;
+            background: url(/images/skills.png) no-repeat center/cover;
             background-size: 80%;
             background-position-y: 10%;
         }

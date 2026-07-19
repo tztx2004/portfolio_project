@@ -50,18 +50,6 @@ const Info = ()=>{
             title:"주소지",
             cont:"경기도 성남시"
         },
-        {
-            title:"",
-            cont:""
-        },
-        {
-            title:"",
-            cont:""
-        },
-        {
-            title:"",
-            cont:""
-        },
     ]
 
     return(
@@ -69,14 +57,16 @@ const Info = ()=>{
             <div className="info">
                 <h2>INFO</h2>
                 <div className="info_content">
-                    {  
-                        infoArr.map((x,i)=>
-                            <div key={i} className="info_item">
+                    {
+                        infoArr.map((x)=>
+                            <div key={x.title} className="info_item">
                                 <h2>
                                     {x.title}
                                 </h2>
                                 <p>
-                                    {x.cont}
+                                    {x.cont.startsWith("http")
+                                        ? <a href={x.cont} target="_blank" rel="noreferrer">{x.cont}</a>
+                                        : x.cont}
                                 </p>
                             </div>
                     )}

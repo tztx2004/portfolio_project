@@ -1,4 +1,4 @@
-import React, { Dispatch, MouseEvent, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 import "../style/top.css";
 
@@ -7,21 +7,19 @@ export interface PropsTop {
     mail: string;
     navbar: string[];
     theme?: string;
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: Dispatch<SetStateAction<number>>
 }
 
-type Navbar = {
+type NavBarProps = {
     navbar: string[]
-    navSt: boolean
     setNavSt: Dispatch<SetStateAction<boolean>>
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: Dispatch<SetStateAction<number>>
 }
 
-function NavBar({ navbar, navSt, setNavSt, setPage } :Navbar){
-    
-    const handleclick = (e:MouseEvent, i:number)=>{
-        e.preventDefault();
-        setPage(i)
+function NavBar({ navbar, setNavSt, setPage }: NavBarProps){
+
+    const handleClick = (page: number)=>{
+        setPage(page)
         setNavSt(false);
     }
 
@@ -32,8 +30,8 @@ function NavBar({ navbar, navSt, setNavSt, setPage } :Navbar){
                 <ul>
                     {
                         navbar.map((x, i) => (
-                            <li key={i}>
-                                <a href="#" onClick={(e)=>handleclick(e, i+1)}>{x}</a>
+                            <li key={x}>
+                                <button className="navLink" onClick={()=>handleClick(i+1)}>{x}</button>
                             </li>
                         ))
                     }
@@ -43,20 +41,12 @@ function NavBar({ navbar, navSt, setNavSt, setPage } :Navbar){
     )
 }
 
-
-
-export default function Top(props: PropsTop): JSX.Element {
-    const { logo, mail, navbar, theme, setPage } = props;
-    
+export default function Top({ logo, mail, navbar, theme, setPage }: PropsTop) {
     // 네비게이션 버튼 활성화 변수
-    const [navSt, setNavSt] = useState<boolean>(false)
-    useEffect(()=>{
-        let test = document.querySelector("#top")
-        theme === "light"? test?.classList.add("light"): test?.classList.remove("light")
-    })
+    const [navSt, setNavSt] = useState(false)
 
     return (
-        <div id="top">
+        <div id="top" className={theme === "light" ? "light" : ""}>
             <div className="topBar">
                 <div className="logo">{logo}</div>
                 <div className="mail">Contact : {mail}</div>
@@ -66,7 +56,7 @@ export default function Top(props: PropsTop): JSX.Element {
                     <span></span>
                 </div>
             </div>
-            {navSt && <NavBar navbar={props.navbar} navSt={navSt} setNavSt={setNavSt} setPage={setPage} />}
+            {navSt && <NavBar navbar={navbar} setNavSt={setNavSt} setPage={setPage} />}
         </div>
     );
 }

@@ -1,9 +1,6 @@
-import React from "react";
 import { styled } from "styled-components";
-type PageType={
 
-}
-const Page = styled.div<PageType>`
+const Page = styled.div`
     position: fixed;
     bottom: 0;
     right: 0;
@@ -17,17 +14,10 @@ const Page = styled.div<PageType>`
 
     display: flex;
     align-items: center;
-    -webkit-box-align: center;
     justify-content: center;
-    -webkit-box-pack: center;
 `
 
-// type PageCounterType = {
-//     page:number
-// }
-
-const PageCounter/* : React.FC<PageCounterType> */=
-({page}:{page:number})=>{
+const PageCounter = ({ page }: { page: number }) => {
     return(
         <Page>
             <h2 className="counter">{page}</h2>

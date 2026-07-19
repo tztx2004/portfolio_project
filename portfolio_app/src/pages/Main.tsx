@@ -1,14 +1,15 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
 import Navbtn from "../components/Navbtn";
 import PageCounter from "../components/PageCounter";
 import Top from "../components/Top";
-import Home from "../components/home";
+import Home from "../components/Home";
 import About from "../components/AboutMe";
 import Project from "../components/Project";
 import Skills from "../components/Skills";
 import Info from "../components/Info";
-//import Ref from "../components/ref";
+
+const LAST_PAGE = 5;
 
 const RefWrap = styled.div`
   position: fixed;
@@ -28,18 +29,15 @@ const Ref = () => {
 };
 
 const Main = () => {
-  let [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState(1);
 
-  const slide = (e: MouseEvent) => {
-    let target = e.currentTarget;
-    target.getAttribute("direction") === "left"
-      ? setPage(--page)
-      : setPage(++page);
+  const slide = (direction: "left" | "right") => {
+    setPage((prev) =>
+      direction === "left"
+        ? Math.max(prev - 1, 1)
+        : Math.min(prev + 1, LAST_PAGE)
+    );
   };
-
-  useEffect(() => {
-    return () => {};
-  });
 
   return (
     <>
@@ -50,14 +48,10 @@ const Main = () => {
         theme={page === 2 || page === 4 || page === 5 ? "light" : ""}
         setPage={setPage}
       />
-      {page < 5 && (
-        <Navbtn
-          direction="right"
-          page={page}
-          onClick={(e: MouseEvent) => slide(e)}
-        />
+      {page < LAST_PAGE && (
+        <Navbtn direction="right" onClick={() => slide("right")} />
       )}
-      {page > 1 && <Navbtn direction="left" page={page} onClick={slide} />}
+      {page > 1 && <Navbtn direction="left" onClick={() => slide("left")} />}
 
       {page === 1 && <Home />}
       {page === 2 && <About />}
